@@ -23,7 +23,7 @@ metadata:
   name: bookinfo-ratings
   labels:
     account: ratings
----
+--- 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
