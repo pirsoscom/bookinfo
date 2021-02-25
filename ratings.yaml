@@ -56,9 +56,9 @@ spec:
         - containerPort: 9080
         resources:
           requests:
-            cpu: "500m"
-            memory: "500Mi"
+            cpu: "50m"
+            memory: "50Mi"
           limits:
-            cpu: "500m"
-            memory: "500Mi"        
+            cpu: "50m"
+            memory: "50Mi"        
 ---
