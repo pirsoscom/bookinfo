@@ -352,8 +352,9 @@ def getProducts():
     return [
         {
             'id': 0,
-            'title': 'The Comedy of Errors',
-            'descriptionHtml': '<a href="https://en.wikipedia.org/wiki/The_Comedy_of_Errors">Wikipedia Summary</a>: The Comedy of Errors is one of <b>William Shakespeare\'s</b> early plays. It is his shortest and one of his most farcical comedies, with a major part of the humour coming from slapstick and mistaken identity, in addition to puns and word play.'
+            'title': 'Watson AIOps - Up and Running',
+            'descriptionHtml': '<a href="https://pages.github.ibm.com/up-and-running/watson-aiops/">Watson AIOps - Up and Running</a>   The definite guide to installing IBM CloudPak for Watson AIOps. <BR><BR>Downtime in any IT environment can irreparably damage a company\'s reputation, cost millions of dollars in lost revenue, or cause you to incur regulatory penalties. <BR>IBM CloudPak for Watson® AIOps combines a set of capabilities to provide a single solution that facilitates predicting, communicating, and resolving events before they become serious problems. <BR>Issues are inevitable in any IT landscape, it\'s how, and when, you respond that can make a world of difference to your organization.'
+
         }
     ]
 
