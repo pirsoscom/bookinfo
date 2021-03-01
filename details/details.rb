@@ -38,13 +38,14 @@ end
 server.mount_proc '/details' do |req, res|
     pathParts = req.path.split('/')
     headers = get_forward_headers(req)
-
+    puts "Details Service: Getting Details - Start"
     begin
         begin
           id = Integer(pathParts[-1])
         rescue
           raise 'please provide numeric product id'
         end
+        puts "Details Service: Rading Details"
         details = get_book_details(id, headers)
         res.body = details.to_json
         res['Content-Type'] = 'application/json'
@@ -53,6 +54,7 @@ server.mount_proc '/details' do |req, res|
         res['Content-Type'] = 'application/json'
         res.status = 400
     end
+    puts "Details Service: Getting Details - Done"
 end
 
 # TODO: provide details on different books.

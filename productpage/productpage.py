@@ -369,14 +369,18 @@ def getProduct(product_id):
 
 def getProductDetails(product_id, headers):
     try:
+        logging.info("Productpage Service: Get Details - Start")
         url = details['name'] + "/" + details['endpoint'] + "/" + str(product_id)
         res = requests.get(url, headers=headers, timeout=3.0)
     except BaseException:
         res = None
     if res and res.status_code == 200:
+        logging.info("Productpage Service: Get Details - Done")
         return 200, res.json()
     else:
         status = res.status_code if res is not None and res.status_code else 500
+        logging.info("Productpage Service: Get Details - Error")
+        logging.info("Productpage Service: Product details are currently unavailable for this book")
         return status, {'error': 'Sorry, product details are currently unavailable for this book.'}
 
 
@@ -385,25 +389,33 @@ def getProductReviews(product_id, headers):
     # TODO: Figure out how to achieve the same effect using Envoy retries/timeouts
     for _ in range(2):
         try:
+            logging.info("Productpage Service: Get Reviews - Start")
             url = reviews['name'] + "/" + reviews['endpoint'] + "/" + str(product_id)
             res = requests.get(url, headers=headers, timeout=3.0)
         except BaseException:
             res = None
         if res and res.status_code == 200:
+            logging.info("Productpage Service: Get Ratings - Done")
             return 200, res.json()
     status = res.status_code if res is not None and res.status_code else 500
+    logging.info("Productpage Service: Get Reviews - Error")
+    logging.info("Productpage Service: Product reviews are currently unavailable for this book")
     return status, {'error': 'Sorry, product reviews are currently unavailable for this book.'}
 
 
 def getProductRatings(product_id, headers):
     try:
+        logging.info("Productpage Service: Get Ratings - Start")
         url = ratings['name'] + "/" + ratings['endpoint'] + "/" + str(product_id)
         res = requests.get(url, headers=headers, timeout=3.0)
     except BaseException:
         res = None
     if res and res.status_code == 200:
+        logging.info("Productpage Service: Get Ratings - Done")
         return 200, res.json()
     else:
+        logging.info("Productpage Service: Get Ratings - Error")
+        logging.info("Productpage Service: Product ratings are currently unavailable for this book")
         status = res.status_code if res is not None and res.status_code else 500
         return status, {'error': 'Sorry, product ratings are currently unavailable for this book.'}
 

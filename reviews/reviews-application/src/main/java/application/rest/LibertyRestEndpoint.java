@@ -145,7 +145,7 @@ public class LibertyRestEndpoint extends Application {
       }
       try {
         Response r = builder.get();
-
+        System.out.println("Reviews Service: Getting ratings for book...");
         int statusCode = r.getStatusInfo().getStatusCode();
         if (statusCode == Response.Status.OK.getStatusCode()) {
           try (StringReader stringReader = new StringReader(r.readEntity(String.class));
@@ -153,11 +153,15 @@ public class LibertyRestEndpoint extends Application {
             return jsonReader.readObject();
           }
         } else {
-          System.out.println("Error: unable to contact " + ratings_service + " got status of " + statusCode);
+          System.out.println("Reviews Service: Error: Ratings Service is unavailable");
+          System.out.println("Reviews Service: No stars will be shown");
+          System.out.println("Reviews Service: Error: unable to contact " + ratings_service + " got status of " + statusCode);
           return null;
         }
       } catch (ProcessingException e) {
-        System.err.println("Error: unable to contact " + ratings_service + " got exception " + e);
+        System.out.println("Reviews Service: Error: Ratings Service is unavailable");
+        System.out.println("Reviews Service: No stars will be shown");
+        System.err.println("Reviews Service: Error: unable to contact " + ratings_service + " got exception " + e);
         return null;
       }
     }
@@ -175,6 +179,9 @@ public class LibertyRestEndpoint extends Application {
       int starsReviewer2 = -1;
 
       if (ratings_enabled) {
+        System.out.println("Reviews Service: Ratings - Enabled");
+        System.out.println("Reviews Service: Ratings - Start");
+        System.out.println("Reviews Service: Stars are " + star_color);
         JsonObject ratingsResponse = getRatings(Integer.toString(productId), requestHeaders);
         if (ratingsResponse != null) {
           if (ratingsResponse.containsKey("ratings")) {
@@ -187,6 +194,7 @@ public class LibertyRestEndpoint extends Application {
             }
           }
         }
+        System.out.println("Reviews Service: Ratings - Done");
       } 
 
       String jsonResStr = getJsonResponse(Integer.toString(productId), starsReviewer1, starsReviewer2);

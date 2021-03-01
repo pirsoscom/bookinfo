@@ -90,6 +90,8 @@ dispatcher.onGet(/^\/ratings\/[0-9]*/, function (req, res) {
   var productIdStr = req.url.split('/').pop()
   var productId = parseInt(productIdStr)
 
+  console.log('Ratings Service: Getting Ratings - Start')
+
   if (Number.isNaN(productId)) {
     res.writeHead(400, {'Content-type': 'application/json'})
     res.end(JSON.stringify({error: 'please provide numeric product ID'}))
@@ -199,6 +201,8 @@ dispatcher.onGet(/^\/ratings\/[0-9]*/, function (req, res) {
         getLocalReviewsSuccessful(res, productId)
       }
   }
+  console.log('Ratings Service: Getting Ratings - Done')
+
 })
 
 dispatcher.onGet('/health', function (req, res) {
