@@ -115,7 +115,7 @@ metadata:
 spec:
   clusterSelector:
     matchLabels:
-      environment: Prod
+      local-cluster: 'true'
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
@@ -128,7 +128,7 @@ metadata:
 spec:
   clusterSelector:
     matchLabels:
-      environment: Prod
+      local-cluster: 'true'
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
@@ -141,7 +141,7 @@ metadata:
 spec:
   clusterSelector:
     matchLabels:
-      environment: Prod
+      local-cluster: 'true'
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
@@ -154,4 +154,4 @@ metadata:
 spec:
   clusterSelector:
     matchLabels:
-      environment: Prod
+      local-cluster: 'true'

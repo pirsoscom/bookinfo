@@ -49,7 +49,7 @@ spec:
       serviceAccountName: bookinfo-details
       containers:
       - name: details
-        image: maistra/examples-bookinfo-details-v1:1.1.12
+        image: niklaushirt/bookinfo-details-v1:log
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
