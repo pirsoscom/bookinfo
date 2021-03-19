@@ -33,6 +33,8 @@ import logging
 import requests
 import os
 import asyncio
+import instana
+
 
 # These two lines enable debugging at httplib level (requests->urllib3->http.client)
 # You will see the REQUEST, including HEADERS and DATA, and RESPONSE with HEADERS but without DATA.

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 sudo rm -r bookinfo/
-https://github.com/pirsoscom/bookinfo.git
+git clone https://github.com/pirsoscom/bookinfo.git
 
-cd bookinfo/
-docker build -t niklaushirt/bookinfo:1.0.0 .
-docker push niklaushirt/bookinfo:1.0.0
+cd ./bookinfo/src/productpage
+docker build -t niklaushirt/bookinfo-productpage-v1:instana .
+docker push niklaushirt/bookinfo-productpage-v1:instana
