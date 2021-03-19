@@ -53,4 +53,9 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
+        env:
+          - name: INSTANA_URL
+            value: https://eum-orange-saas.instana.io
+          - name: INSTANA_KEY
+            value: v-KVxaJeT0mqCrRbvhSx6w
 ---
