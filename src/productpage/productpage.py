@@ -61,6 +61,9 @@ servicesDomain = "" if (os.environ.get("SERVICES_DOMAIN") is None) else "." + os
 detailsHostname = "details" if (os.environ.get("DETAILS_HOSTNAME") is None) else os.environ.get("DETAILS_HOSTNAME")
 ratingsHostname = "ratings" if (os.environ.get("RATINGS_HOSTNAME") is None) else os.environ.get("RATINGS_HOSTNAME")
 reviewsHostname = "reviews" if (os.environ.get("REVIEWS_HOSTNAME") is None) else os.environ.get("REVIEWS_HOSTNAME")
+instana_url = os.environ.get("INSTANA_URL")
+instana_key = os.environ.get("INSTANA_KEY")
+
 
 flood_factor = 0 if (os.environ.get("FLOOD_FACTOR") is None) else int(os.environ.get("FLOOD_FACTOR"))
 
@@ -314,7 +317,9 @@ def front():
         product=product,
         details=details,
         reviews=reviews,
-        user=user)
+        user=user,
+        instana_url=instana_url,
+        instana_key=instana_key)
 
 
 # The API:

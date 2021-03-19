@@ -19,7 +19,7 @@ metadata:
   selfLink: /apis/app.k8s.io/v1beta1/namespaces/bookinfo-def/applications/bookinfo
 spec:
   componentKinds:
-    - group: apps.open-cluster-management.io
+    - group: app.ibm.com
       kind: Subscription
   descriptor: {}
   selector:
